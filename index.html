@@ -1,0 +1,1409 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <title>Navbar</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .navbar {
+        padding: 25px 80px;
+        background-color: #f5f5f5;
+      }
+
+      /* Logo */
+      .navbar-brand {
+        font-size: 45px;
+        font-weight: 700;
+        color: #81c408 !important;
+      }
+
+      /* Center nav links */
+      .navbar-nav {
+        gap: 25px;
+      }
+
+      .nav-link {
+        font-size: 20px;
+        color: #555 !important;
+        transition: 0.3s;
+      }
+
+      .nav-link:hover {
+        color: #81c408 !important;
+      }
+
+      .active-link {
+        color: #81c408 !important;
+        font-weight: 500;
+      }
+
+      /* Right side icons */
+      .nav-icons {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+      }
+
+      .search-icon {
+        width: 55px;
+        height: 55px;
+        border: 2px solid orange;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #81c408;
+        font-size: 22px;
+      }
+
+      .cart {
+        position: relative;
+        font-size: 35px;
+        color: #81c408;
+      }
+
+      .cart span {
+        position: absolute;
+        top: -10px;
+        right: -12px;
+        background-color: orange;
+        color: white;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        font-size: 14px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .user {
+        font-size: 35px;
+        color: #81c408;
+      }
+
+      /* HERO SECTION */
+
+      .hero-section {
+        padding: 80px 0;
+        background-color: #f8f7f2;
+        background-image: url("https://themewagon.github.io/fruitables/img/hero-img.jpg");
+        background-size: cover;
+        background-position: center;
+      }
+
+      .organic-text {
+        color: orange;
+        font-size: 45px;
+        margin-bottom: 25px;
+      }
+
+      .hero-title {
+        font-size: 90px;
+        font-weight: 700;
+        color: #81c408;
+        line-height: 1.2;
+      }
+
+      .search-box {
+        margin-top: 40px;
+        width: 80%;
+        display: flex;
+        border: 2px solid orange;
+        border-radius: 50px;
+        overflow: hidden;
+        background: white;
+      }
+
+      .search-box input {
+        flex: 1;
+        border: none;
+        outline: none;
+        padding: 22px 25px;
+        font-size: 18px;
+      }
+
+      .search-box button {
+        border: none;
+        background-color: #81c408;
+        color: white;
+        padding: 20px 40px;
+        font-size: 20px;
+        font-weight: 500;
+      }
+
+      /* RIGHT IMAGE */
+
+      .hero-image {
+        position: relative;
+        background-color: orange;
+        border-radius: 15px;
+        overflow: hidden;
+        padding: 30px;
+      }
+
+      .hero-image img {
+        width: 100%;
+      }
+
+      /* ARROWS */
+
+      .arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 60px;
+        height: 60px;
+        background-color: rgba(129, 196, 8, 0.8);
+        border-radius: 50%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        color: white;
+        font-size: 28px;
+        cursor: pointer;
+      }
+
+      .left-arrow {
+        left: 15px;
+      }
+
+      .right-arrow {
+        right: 15px;
+      }
+
+      /* FRUIT TAG */
+
+      .fruit-tag {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        background-color: rgba(255, 166, 0, 0.8);
+        color: white;
+
+        padding: 15px 35px;
+        border-radius: 12px;
+
+        font-size: 40px;
+        font-weight: 600;
+      }
+
+      /* RESPONSIVE */
+
+      @media (max-width: 992px) {
+        .hero-title {
+          font-size: 55px;
+        }
+
+        .organic-text {
+          font-size: 30px;
+        }
+
+        .search-box {
+          width: 100%;
+        }
+
+        .hero-image {
+          margin-top: 40px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .hero-title {
+          font-size: 40px;
+        }
+
+        .search-box {
+          flex-direction: column;
+          border-radius: 20px;
+        }
+
+        .search-box button {
+          width: 100%;
+        }
+      }
+
+      /* FEATURES SECTION */
+
+      .features-section {
+        padding: 100px 0;
+        background-color: #f5f5f5;
+      }
+
+      .feature-card {
+        background-color: #f2f3f5;
+        border-radius: 15px;
+        padding: 50px 30px;
+        text-align: center;
+        transition: 0.3s;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-10px);
+      }
+
+      /* ICON DESIGN */
+
+      .feature-icon {
+        width: 140px;
+        height: 140px;
+        background-color: orange;
+
+        margin: auto;
+        margin-bottom: 35px;
+
+        border-radius: 50% 50% 50% 0;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        color: white;
+        font-size: 55px;
+
+        position: relative;
+      }
+
+      /* TEXT */
+
+      .feature-card h3 {
+        font-size: 32px;
+        color: #45595b;
+        margin-bottom: 15px;
+      }
+
+      .feature-card p {
+        font-size: 22px;
+        color: #747d88;
+      }
+
+      /* RESPONSIVE */
+
+      @media (max-width: 992px) {
+        .feature-card {
+          padding: 40px 20px;
+        }
+
+        .feature-card h3 {
+          font-size: 28px;
+        }
+
+        .feature-card p {
+          font-size: 18px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .feature-icon {
+          width: 110px;
+          height: 110px;
+          font-size: 45px;
+        }
+
+        .feature-card h3 {
+          font-size: 24px;
+        }
+      }
+
+      /* PRODUCTS SECTION */
+
+      .products-section {
+        padding: 100px 0;
+        background-color: #f5f5f5;
+      }
+
+      /* HEADER */
+
+      .products-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 30px;
+      }
+
+      .products-header h1 {
+        font-size: 70px;
+        color: #45595b;
+        font-weight: 600;
+      }
+
+      /* FILTER BUTTONS */
+
+      .filter-buttons {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .filter-buttons button {
+        border: none;
+        padding: 18px 35px;
+        border-radius: 40px;
+        background-color: #e9ecef;
+        font-size: 22px;
+        color: #45595b;
+        transition: 0.3s;
+      }
+
+      .filter-buttons button:hover {
+        background-color: orange;
+        color: white;
+      }
+
+      .active-btn {
+        background-color: orange !important;
+        color: white !important;
+      }
+
+      /* PRODUCT CARD */
+
+      .product-card {
+        background-color: white;
+        border: 1px solid orange;
+        border-radius: 18px;
+        overflow: hidden;
+        transition: 0.3s;
+      }
+
+      .product-card:hover {
+        transform: translateY(-10px);
+      }
+
+      /* IMAGE */
+
+      .product-image {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .product-image img {
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+        transition: 0.5s;
+      }
+
+      .product-card:hover img {
+        transform: scale(1.1);
+      }
+
+      /* TAG */
+
+      .product-tag {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+
+        background-color: orange;
+        color: white;
+
+        padding: 10px 22px;
+        border-radius: 12px;
+
+        font-size: 22px;
+      }
+
+      /* CONTENT */
+
+      .product-content {
+        padding: 35px 25px;
+        text-align: center;
+      }
+
+      .product-content h3 {
+        font-size: 45px;
+        color: #45595b;
+        margin-bottom: 20px;
+      }
+
+      .product-content p {
+        font-size: 22px;
+        color: #747d88;
+        line-height: 1.7;
+      }
+
+      /* BOTTOM */
+
+      .product-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 30px;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+
+      .product-bottom h4 {
+        font-size: 38px;
+        color: #45595b;
+      }
+
+      .product-bottom button {
+        border: 1px solid orange;
+        background: transparent;
+        padding: 12px 25px;
+        border-radius: 40px;
+
+        color: #81c408;
+        font-size: 20px;
+        transition: 0.3s;
+      }
+
+      .product-bottom button:hover {
+        background-color: orange;
+        color: white;
+      }
+
+      /* RESPONSIVE */
+
+      @media (max-width: 992px) {
+        .products-header {
+          justify-content: center;
+          text-align: center;
+        }
+
+        .products-header h1 {
+          font-size: 50px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .products-header h1 {
+          font-size: 38px;
+        }
+
+        .filter-buttons {
+          justify-content: center;
+        }
+
+        .filter-buttons button {
+          width: 100%;
+        }
+
+        .product-content h3 {
+          font-size: 32px;
+        }
+
+        .product-content p {
+          font-size: 18px;
+        }
+
+        .product-bottom {
+          justify-content: center;
+        }
+
+        .product-bottom h4 {
+          font-size: 28px;
+        }
+      }
+
+      /* STRAWBERRY BANNER */
+
+      .strawberry-banner {
+        background-color: orange;
+        padding: 100px 0;
+        overflow: hidden;
+      }
+
+      /* LEFT CONTENT */
+
+      .banner-title {
+        font-size: 85px;
+        color: white;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+
+      .banner-subtitle {
+        font-size: 90px;
+        color: #45595b;
+        font-weight: 400;
+        margin-bottom: 35px;
+      }
+
+      .banner-text {
+        font-size: 24px;
+        color: #45595b;
+        line-height: 1.8;
+        margin-bottom: 40px;
+      }
+
+      /* BUTTON */
+
+      .buy-btn {
+        padding: 18px 55px;
+        border: 2px solid white;
+        border-radius: 50px;
+
+        background: transparent;
+        color: #45595b;
+
+        font-size: 24px;
+        font-weight: 600;
+
+        transition: 0.3s;
+      }
+
+      .buy-btn:hover {
+        background-color: white;
+      }
+
+      /* RIGHT IMAGE */
+
+      .strawberry-image {
+        position: relative;
+        text-align: center;
+      }
+
+      .strawberry-image img {
+        width: 100%;
+        max-width: 650px;
+      }
+
+      /* PRICE CIRCLE */
+
+      .price-circle {
+        position: absolute;
+        top: 0;
+        left: 30px;
+
+        width: 190px;
+        height: 190px;
+
+        background-color: white;
+        border-radius: 50%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        gap: 10px;
+      }
+
+      .price-circle h1 {
+        font-size: 90px;
+        color: #45595b;
+        font-weight: 700;
+      }
+
+      .price-circle h2 {
+        font-size: 55px;
+        color: #45595b;
+      }
+
+      .price-circle h3 {
+        font-size: 45px;
+        color: #45595b;
+      }
+
+      /* RESPONSIVE */
+
+      @media (max-width: 992px) {
+        .banner-title {
+          font-size: 55px;
+        }
+
+        .banner-subtitle {
+          font-size: 60px;
+        }
+
+        .banner-text {
+          font-size: 20px;
+        }
+
+        .strawberry-image img {
+          width: 100%;
+          max-width: 650px;
+          object-fit: contain;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .banner-title {
+          font-size: 40px;
+        }
+
+        .banner-subtitle {
+          font-size: 45px;
+        }
+
+        .banner-text {
+          font-size: 18px;
+        }
+
+        .buy-btn {
+          width: 100%;
+        }
+
+        .price-circle {
+          width: 130px;
+          height: 130px;
+        }
+
+        .price-circle h1 {
+          font-size: 55px;
+        }
+
+        .price-circle h2 {
+          font-size: 30px;
+        }
+
+        .price-circle h3 {
+          font-size: 25px;
+        }
+      }
+
+      /* FOOTER SECTION */
+
+      .footer-section {
+        background-color: #45595b;
+        padding: 50px 0 15px;
+        color: white;
+      }
+
+      /* TOP FOOTER */
+
+      .footer-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 25px;
+        padding-bottom: 25px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        flex-wrap: wrap;
+      }
+
+      /* LOGO */
+
+      .footer-logo h1 {
+        font-size: 42px;
+        color: #81c408;
+        font-weight: 700;
+        margin-bottom: 5px;
+      }
+
+      .footer-logo p {
+        color: orange;
+        font-size: 18px;
+      }
+
+      /* SUBSCRIBE BOX */
+
+      .subscribe-box {
+        display: flex;
+        overflow: hidden;
+        border-radius: 50px;
+        background-color: white;
+        width: 40%;
+      }
+
+      .subscribe-box input {
+        flex: 1;
+        border: none;
+        outline: none;
+        padding: 14px 18px;
+        font-size: 16px;
+      }
+
+      .subscribe-box button {
+        border: none;
+        background-color: #81c408;
+        color: white;
+        padding: 14px 22px;
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      /* SOCIAL ICONS */
+
+      .social-icons {
+        display: flex;
+        gap: 12px;
+      }
+
+      .social-circle {
+        width: 45px;
+        height: 45px;
+        border: 1px solid orange;
+        border-radius: 50%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        color: orange;
+        font-size: 18px;
+      }
+
+      /* FOOTER CONTENT */
+
+      .footer-content {
+        padding-top: 30px;
+      }
+
+      .footer-content h2 {
+        font-size: 28px;
+        margin-bottom: 18px;
+      }
+
+      .footer-content p {
+        font-size: 16px;
+        line-height: 1.8;
+        color: #d6d6d6;
+      }
+
+      .footer-content ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .footer-content ul li {
+        margin-bottom: 10px;
+        color: #d6d6d6;
+        font-size: 16px;
+      }
+
+      .footer-content ul li a {
+        text-decoration: none;
+        color: #d6d6d6;
+      }
+
+      /* READ BUTTON */
+
+      .read-btn {
+        margin-top: 12px;
+        border: 1px solid orange;
+        background: transparent;
+        color: #81c408;
+
+        padding: 10px 22px;
+        border-radius: 40px;
+
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      /* PAYMENT */
+
+      .payment-icons img {
+        width: 180px;
+        margin-top: 10px;
+      }
+
+      /* BOTTOM FOOTER */
+
+      .footer-bottom {
+        margin-top: 30px;
+        padding-top: 18px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .footer-bottom p {
+        font-size: 15px;
+        color: white;
+        margin: 0;
+      }
+
+      .footer-bottom span {
+        color: #81c408;
+      }
+
+      .footer-bottom a {
+        color: #81c408;
+        text-decoration: underline;
+      }
+
+      /* RESPONSIVE */
+
+      @media (max-width: 992px) {
+        .footer-top {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .subscribe-box {
+          width: 100%;
+        }
+
+        .footer-content h2 {
+          margin-top: 25px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .subscribe-box {
+          flex-direction: column;
+          border-radius: 20px;
+        }
+
+        .subscribe-box button {
+          width: 100%;
+        }
+
+        .footer-bottom {
+          justify-content: center;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container-fluid">
+        <!-- Logo -->
+        <a class="navbar-brand" href="#">Fruitables</a>
+
+        <!-- Toggle Button -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarContent"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Content -->
+        <div
+          class="collapse navbar-collapse justify-content-center"
+          id="navbarContent"
+        >
+          <!-- Nav Links -->
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active-link" href="#">Home</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">Shop</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">Shop Detail</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+              >
+                Pages
+              </a>
+
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Cart</a></li>
+                <li><a class="dropdown-item" href="#">Checkout</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right Icons -->
+        <div class="nav-icons">
+          <div class="search-icon">
+            <i class="bi bi-search"></i>
+          </div>
+
+          <div class="cart">
+            <i class="bi bi-bag-fill"></i>
+            <span>3</span>
+          </div>
+
+          <div class="user">
+            <i class="bi bi-person-fill"></i>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+
+    <section class="hero-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <!-- LEFT CONTENT -->
+
+          <div class="col-lg-7">
+            <h4 class="organic-text">100% Organic Foods</h4>
+
+            <h1 class="hero-title">
+              Organic Veggies &
+              <br />
+              Fruits Foods
+            </h1>
+
+            <!-- Search Box -->
+
+            <div class="search-box">
+              <input type="text" placeholder="Search" />
+
+              <button>Submit Now</button>
+            </div>
+          </div>
+
+          <!-- RIGHT IMAGE -->
+
+          <div class="col-lg-5">
+            <div class="hero-image">
+              <img
+                src="https://themewagon.github.io/fruitables/img/hero-img-1.png"
+                alt=""
+              />
+
+              <!-- Left Arrow -->
+              <div class="arrow left-arrow">
+                <i class="bi bi-chevron-left"></i>
+              </div>
+
+              <!-- Right Arrow -->
+              <div class="arrow right-arrow">
+                <i class="bi bi-chevron-right"></i>
+              </div>
+
+              <!-- Center Tag -->
+              <div class="fruit-tag">Fruites</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+
+    <section class="features-section">
+      <div class="container">
+        <div class="row g-4">
+          <!-- CARD 1 -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="bi bi-car-front-fill"></i>
+              </div>
+
+              <h3>Free Shipping</h3>
+
+              <p>Free on order over $300</p>
+            </div>
+          </div>
+
+          <!-- CARD 2 -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="bi bi-person-fill-check"></i>
+              </div>
+
+              <h3>Security Payment</h3>
+
+              <p>100% security payment</p>
+            </div>
+          </div>
+
+          <!-- CARD 3 -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="bi bi-arrow-left-right"></i>
+              </div>
+
+              <h3>30 Day Return</h3>
+
+              <p>30 day money guarantee</p>
+            </div>
+          </div>
+
+          <!-- CARD 4 -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="bi bi-telephone-fill"></i>
+              </div>
+
+              <h3>24 / 7 Support</h3>
+
+              <p>Support every time fast</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTS SECTION -->
+
+    <section class="products-section">
+      <div class="container">
+        <!-- TOP HEADING -->
+
+        <div class="products-header">
+          <h1>Our Organic Products</h1>
+
+          <!-- FILTER BUTTONS -->
+
+          <div class="filter-buttons">
+            <button class="active-btn">All Products</button>
+            <button>Vegetables</button>
+            <button>Fruits</button>
+            <button>Bread</button>
+            <button>Meat</button>
+          </div>
+        </div>
+
+        <!-- PRODUCT CARDS -->
+
+        <div class="row g-4 mt-4">
+          <!-- CARD 1 -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="product-card">
+              <div class="product-image">
+                <img
+                  src="https://themewagon.github.io/fruitables/img/fruite-item-5.jpg"
+                  alt=""
+                />
+
+                <span class="product-tag">Fruits</span>
+              </div>
+
+              <div class="product-content">
+                <h3>Grapes</h3>
+
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit sed do
+                  eiusmod te incididunt
+                </p>
+
+                <div class="product-bottom">
+                  <h4>$4.99 / kg</h4>
+
+                  <button>
+                    <i class="bi bi-bag-fill"></i>
+                    Add to cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 2 -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="product-card">
+              <div class="product-image">
+                <img
+                  src="https://themewagon.github.io/fruitables/img/fruite-item-5.jpg"
+                  alt=""
+                />
+
+                <span class="product-tag">Fruits</span>
+              </div>
+
+              <div class="product-content">
+                <h3>Grapes</h3>
+
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit sed do
+                  eiusmod te incididunt
+                </p>
+
+                <div class="product-bottom">
+                  <h4>$4.99 / kg</h4>
+
+                  <button>
+                    <i class="bi bi-bag-fill"></i>
+                    Add to cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 3 -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="product-card">
+              <div class="product-image">
+                <img
+                  src="https://themewagon.github.io/fruitables/img/fruite-item-2.jpg"
+                  alt=""
+                />
+
+                <span class="product-tag">Fruits</span>
+              </div>
+
+              <div class="product-content">
+                <h3>Raspberries</h3>
+
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit sed do
+                  eiusmod te incididunt
+                </p>
+
+                <div class="product-bottom">
+                  <h4>$4.99 / kg</h4>
+
+                  <button>
+                    <i class="bi bi-bag-fill"></i>
+                    Add to cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 4 -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="product-card">
+              <div class="product-image">
+                <img
+                  src="https://themewagon.github.io/fruitables/img/fruite-item-4.jpg"
+                  alt=""
+                />
+
+                <span class="product-tag">Fruits</span>
+              </div>
+
+              <div class="product-content">
+                <h3>Apricots</h3>
+
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit sed do
+                  eiusmod te incididunt
+                </p>
+
+                <div class="product-bottom">
+                  <h4>$4.99 / kg</h4>
+
+                  <button>
+                    <i class="bi bi-bag-fill"></i>
+                    Add to cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STRAWBERRY BANNER SECTION -->
+
+    <section class="strawberry-banner">
+      <div class="container">
+        <div class="row align-items-center">
+          <!-- LEFT CONTENT -->
+
+          <div class="col-lg-6">
+            <h1 class="banner-title">Fresh Exotic Strawberries</h1>
+
+            <h2 class="banner-subtitle">in Our Store</h2>
+
+            <p class="banner-text">
+              The generated Lorem Ipsum is therefore always free from repetition
+              injected humour, or non-characteristic words etc.
+            </p>
+
+            <button class="buy-btn">BUY</button>
+          </div>
+
+          <!-- RIGHT IMAGE -->
+
+          <div class="col-lg-6">
+            <div class="strawberry-image">
+              <!-- PRICE CIRCLE -->
+
+              <div class="price-circle">
+                <h1>1</h1>
+
+                <div>
+                  <h2>50$</h2>
+                  <h3>kg</h3>
+                </div>
+              </div>
+
+              <!-- STRAWBERRY IMAGE -->
+
+              <img
+                src="https://imgs.search.brave.com/smN9KB32tYs5nKuByhMNBLZ1BrjxKYIsOE0NS_3Tkow/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzAyLzk2LzU0LzAw/LzM2MF9GXzI5NjU0/MDAyMV9wZFNSMGVw/WU85SHM5bnVvTEY5/ZFFob2dkdzduZXBD/Sy5qcGc"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER SECTION -->
+
+    <footer class="footer-section">
+      <div class="container">
+        <!-- TOP FOOTER -->
+
+        <div class="footer-top">
+          <!-- LOGO -->
+
+          <div class="footer-logo">
+            <h1>Fruitables</h1>
+            <p>Fresh products</p>
+          </div>
+
+          <!-- SUBSCRIBE BOX -->
+
+          <div class="subscribe-box">
+            <input type="text" placeholder="Your Email" />
+
+            <button>Subscribe Now</button>
+          </div>
+
+          <!-- SOCIAL ICONS -->
+
+          <div class="social-icons">
+            <div class="social-circle">
+              <i class="bi bi-twitter"></i>
+            </div>
+
+            <div class="social-circle">
+              <i class="bi bi-facebook"></i>
+            </div>
+
+            <div class="social-circle">
+              <i class="bi bi-youtube"></i>
+            </div>
+
+            <div class="social-circle">
+              <i class="bi bi-linkedin"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- FOOTER CONTENT -->
+
+        <div class="row footer-content">
+          <!-- COLUMN 1 -->
+
+          <div class="col-lg-3 col-md-6">
+            <h2>Why People Like us!</h2>
+
+            <p>
+              typesetting, remaining essentially unchanged. It was popularised
+              in the 1960s with the like Aldus PageMaker including of Lorem
+              Ipsum.
+            </p>
+
+            <button class="read-btn">Read More</button>
+          </div>
+
+          <!-- COLUMN 2 -->
+
+          <div class="col-lg-3 col-md-6">
+            <h2>Shop Info</h2>
+
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms & Condition</a></li>
+              <li><a href="#">Return Policy</a></li>
+              <li><a href="#">FAQs & Help</a></li>
+            </ul>
+          </div>
+
+          <!-- COLUMN 3 -->
+
+          <div class="col-lg-3 col-md-6">
+            <h2>Account</h2>
+
+            <ul>
+              <li><a href="#">My Account</a></li>
+              <li><a href="#">Shop details</a></li>
+              <li><a href="#">Shopping Cart</a></li>
+              <li><a href="#">Wishlist</a></li>
+              <li><a href="#">Order History</a></li>
+              <li><a href="#">International Orders</a></li>
+            </ul>
+          </div>
+
+          <!-- COLUMN 4 -->
+
+          <div class="col-lg-3 col-md-6">
+            <h2>Contact</h2>
+
+            <ul>
+              <li>Address: 1429 Netus Rd, NY 48247</li>
+              <li>Email: Example@gmail.com</li>
+              <li>Phone: +0123 4567 8910</li>
+            </ul>
+
+            <h4>Payment Accepted</h4>
+
+            <div class="payment-icons">
+              <img
+                src="https://themewagon.github.io/fruitables/img/payment.png"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- BOTTOM FOOTER -->
+
+        <div class="footer-bottom">
+          <p>
+            <i class="bi bi-c-circle-fill"></i>
+            <span>Laxman Roy</span>, All right reserved.
+          </p>
+
+          <p>
+            Designed By
+            <a href="#">Laxman Roy</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
